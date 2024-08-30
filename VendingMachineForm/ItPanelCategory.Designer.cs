@@ -70,6 +70,7 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(639, 358);
             panel3.TabIndex = 10;
+            panel3.Paint += panel3_Paint;
             // 
             // btnDeleteCategory
             // 
@@ -169,6 +170,7 @@
             label1.Size = new Size(173, 35);
             label1.TabIndex = 0;
             label1.Text = "Categories Data";
+            label1.Click += label1_Click;
             // 
             // ItPanelCategory
             // 

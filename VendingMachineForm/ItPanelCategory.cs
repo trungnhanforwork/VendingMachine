@@ -55,7 +55,7 @@ namespace VendingMachineForm
             {
                 MessageBox.Show("Please choose one category to update.", "Warning");
                 return;
-            } 
+            }
 
             FrmAddOrUpdateCategory frmAddOrUpdate = new FrmAddOrUpdateCategory();
             frmAddOrUpdate.category = selected;
@@ -70,6 +70,16 @@ namespace VendingMachineForm
             {
                 selected = (Category)dataGridView1.SelectedRows[0].DataBoundItem;
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
