@@ -53,6 +53,7 @@ namespace VendingMachineForm
                     ImagePath = savedImagePath
                 };
                 categoryService.CreateCategory(category);
+                this.Close();
             } else if (checkUpdate) {
                 string categoryName = txtName.Text.Trim();
 
@@ -82,8 +83,8 @@ namespace VendingMachineForm
                 category.ImagePath = savedImagePath;
 
                  categoryService.UpdateCategory(category);
-                 MessageBox.Show("Category updated successfully.");
-               
+                this.Close();
+
             }
         }
 

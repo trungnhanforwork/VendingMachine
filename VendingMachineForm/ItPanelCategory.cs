@@ -21,9 +21,8 @@ namespace VendingMachineForm
             InitializeComponent();
         }
 
-        private void ItPanelCategory_Load(object sender, EventArgs e)
+        private void FillDataGridView()
         {
-            categoryService = new CategoryService();
             var categories = categoryService.GetAllCategories();
             dataGridView1.AutoGenerateColumns = true;
             if (categories != null && categories.Any())
@@ -37,6 +36,12 @@ namespace VendingMachineForm
             }
         }
 
+        private void ItPanelCategory_Load(object sender, EventArgs e)
+        {
+            categoryService = new CategoryService();
+            FillDataGridView();
+        }
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             selected = null;
@@ -47,6 +52,8 @@ namespace VendingMachineForm
             FrmAddOrUpdateCategory frmAddOrUpdate = new FrmAddOrUpdateCategory();
             frmAddOrUpdate.checkAdd = true;
             frmAddOrUpdate.ShowDialog();
+            FillDataGridView();
+
         }
 
         private void btnUpdateCategory_Click(object sender, EventArgs e)
@@ -61,6 +68,7 @@ namespace VendingMachineForm
             frmAddOrUpdate.category = selected;
             frmAddOrUpdate.checkUpdate = true;
             frmAddOrUpdate.ShowDialog();
+            FillDataGridView();
 
         }
 
@@ -102,7 +110,8 @@ namespace VendingMachineForm
                         File.Delete(selected.ImagePath);
                     }
                     MessageBox.Show("Category deleted successfully.");
-                    ItPanelCategory_Load( sender,  e);                }
+                    FillDataGridView();
+                }
             }
         }
     }
