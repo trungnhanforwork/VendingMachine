@@ -69,6 +69,9 @@ namespace VendingMachineForm
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 selected = (Category)dataGridView1.SelectedRows[0].DataBoundItem;
+            } else
+            {
+                selected = null;
             }
         }
 
@@ -80,6 +83,27 @@ namespace VendingMachineForm
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnDeleteCategory_Click(object sender, EventArgs e)
+        {
+            if (selected == null)
+            {
+                MessageBox.Show("Please choose one catgory to delete!");
+            } else
+            {
+                var comfirmResult = MessageBox.Show($"Are you sure deleting category {selected.Name}","Comfirm Delete", MessageBoxButtons.YesNo);
+                if (comfirmResult == DialogResult.Yes)
+                {
+                    
+                    categoryService.DeleteCategory(selected.CategoryId);
+                    if (!string.IsNullOrEmpty(selected.ImagePath) && File.Exists(selected.ImagePath))
+                    {
+                        File.Delete(selected.ImagePath);
+                    }
+                    MessageBox.Show("Category deleted successfully.");
+                    ItPanelCategory_Load( sender,  e);                }
+            }
         }
     }
 }

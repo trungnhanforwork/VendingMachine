@@ -10,8 +10,8 @@ namespace Repositories
 {
     public class CategoryRepository
     {
-        //private string _connectionString = "Data Source=DESKTOP-KG5LI9R;Initial Catalog=VendingMachine;Integrated Security=True";
-        private string _connectionString = "Server=KHUONGDAVIDPC; Database=VendingMachine; Integrated Security=True;";
+        private string _connectionString = "Data Source=DESKTOP-KG5LI9R;Initial Catalog=VendingMachine;Integrated Security=True";
+        //private string _connectionString = "Server=KHUONGDAVIDPC; Database=VendingMachine; Integrated Security=True;";
         public CategoryRepository() { }
         public List<Category> GetAllCategories()
         {
@@ -73,5 +73,20 @@ namespace Repositories
                 }
             }
         }
+
+        public void DeleteCategory(int categoryId)
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                conn.Open();
+                string sql = "DELETE FROM Category WHERE CategoryId = @CategoryId";
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@CategoryId", categoryId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
     }
 }

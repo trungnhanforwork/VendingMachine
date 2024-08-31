@@ -26,5 +26,9 @@ namespace Services
         {
             categoryRepository.UpdateCategory(category);
         }
+        public void DeleteCategory(int categoryId)
+        {
+            categoryRepository.DeleteCategory(categoryId);
+        }
     }
 }

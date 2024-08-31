@@ -82,6 +82,7 @@
             btnDeleteCategory.TabIndex = 3;
             btnDeleteCategory.Text = "Delete";
             btnDeleteCategory.UseVisualStyleBackColor = true;
+            btnDeleteCategory.Click += btnDeleteCategory_Click;
             // 
             // btnUpdateCategory
             // 

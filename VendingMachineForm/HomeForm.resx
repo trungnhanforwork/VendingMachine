@@ -121,7 +121,7 @@
   <data name="button4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAGwSURBVFhH7Ve7
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAGwSURBVFhH7Ve7
         TsNAEFw6/gA+gCAkxJcgIYGAghp+I/mPBAQdiIoK/gIKhO0EEWgQLa8mKHDMmjnFF+dRZHNpGGlke9fe
         mdxefD4ZBJfJjkvlE3RG/AKfUPcQxzXKDIdL5KjwsDW/wZpzMke5MtydLOGmY/DchIlc4HgPFo3UKBcP
         aMEuhD9ooAuOb4c1MBr7NOBgqMFwPGjvIf5AE22G44JzQg10GIoLCOvkzNvAUFyMNYAhquTvgkQ2GTLF
@@ -135,7 +135,7 @@
   <data name="btnOrders.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAMvSURBVFhHtZdJ
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAMvSURBVFhHtZdJ
         aBRBFIafgisqLqioCHFBQXHBBSLq1QUFQVEUl4u55KTJKZccxOWgoOjB/SQYVATFnNxQ0YOCGDBOd8VJ
         FBK3IHgSVCKW/3vzZ8zQUzNJpv3gMam//vpfdWeqZ0YGiu+SUT6Weh/JC7x+Zz3HuM6/l5G0/R98Ruai
         WRvKs76yesexemhPF/9aJqBBBxvdQaMFnNKNLYTWzLkO3yLjOZUeCD7BBk3eyxDKeVTzTq6ZJ5LjlNMB
@@ -155,7 +155,7 @@
   <data name="btnProducts.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANeSURBVFhH7ZZb
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANeSURBVFhH7ZZb
         iE5RFMfXuBZFIjGUIkmICEkUzQOZIcmIoUTjMuQ+vKnxILcnHiY8KEny4JIYkkvIJHfNfHPmFsWg5mIk
         L6Tjt9as+b5vxneZS3maf/3b57/W2mvts/c+ex/pQQ/+F8JAtoYVctoYSJ6bW4BhAY4vsKmDbAwjss27
         dwj0mUGdlfRbxXMVnOIuc+bD4y7TgtjVJCp2aQhfSF/smylyJI5bzFch66O2iBxDf6IdYx0VGLLhBZdp

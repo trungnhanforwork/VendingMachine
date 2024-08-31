@@ -44,5 +44,25 @@
         {
             this.Close();
         }
+
+        private void btnProducts_Click(object sender, EventArgs e)
+        {
+            if (currentPanelForm != null && !currentPanelForm.IsDisposed)
+            {
+                currentPanelForm.Close();  // Đóng Form trước khi Dispose
+                currentPanelForm.Dispose();
+            }
+            ItPanelProduct f = new ItPanelProduct();
+            if (f.Parent != null)
+            {
+                f.Parent.Controls.Remove(f);
+            }
+            // Thiết lập TopLevel, Dock và Parent cho UserControl
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            splitContainer1.Panel2.Controls.Add(f);
+            f.Show();
+            currentPanelForm = f;
+        }
     }
 }

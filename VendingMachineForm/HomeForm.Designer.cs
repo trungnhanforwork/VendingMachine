@@ -70,7 +70,7 @@
             panel4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel4.BackColor = SystemColors.ControlDarkDark;
             panel4.Controls.Add(label1);
-            panel4.Location = new Point(-3, 639);
+            panel4.Location = new Point(-3, 643);
             panel4.Name = "panel4";
             panel4.Size = new Size(1151, 47);
             panel4.TabIndex = 3;
@@ -99,8 +99,8 @@
             splitContainer1.Panel1.Controls.Add(btnProducts);
             splitContainer1.Panel1.Controls.Add(btnCategories);
             splitContainer1.Panel1.Paint += splitContainer1_Panel1_Paint;
-            splitContainer1.Size = new Size(1130, 582);
-            splitContainer1.SplitterDistance = 374;
+            splitContainer1.Size = new Size(1145, 582);
+            splitContainer1.SplitterDistance = 378;
             splitContainer1.TabIndex = 4;
             // 
             // button4
@@ -145,6 +145,7 @@
             btnProducts.TabIndex = 4;
             btnProducts.Text = "Products";
             btnProducts.UseVisualStyleBackColor = false;
+            btnProducts.Click += btnProducts_Click;
             // 
             // btnCategories
             // 
