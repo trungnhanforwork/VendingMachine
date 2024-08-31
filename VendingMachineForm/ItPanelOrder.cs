@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace VendingMachineForm
 {
-    public partial class ItPanelProduct : Form
+    public partial class ItPanelOrder : Form
     {
-        public ItPanelProduct()
+        public ItPanelOrder()
         {
             InitializeComponent();
-        }
-
-        private void dgvProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

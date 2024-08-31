@@ -108,8 +108,10 @@
             dgvProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvProducts.Location = new Point(3, 3);
             dgvProducts.Name = "dgvProducts";
+            dgvProducts.RowHeadersWidth = 51;
             dgvProducts.Size = new Size(522, 362);
             dgvProducts.TabIndex = 0;
+            dgvProducts.CellContentClick += dgvProducts_CellContentClick;
             // 
             // panel2
             // 
@@ -139,7 +141,7 @@
             txtSearcProduct.Location = new Point(3, 27);
             txtSearcProduct.Margin = new Padding(3, 4, 3, 4);
             txtSearcProduct.Name = "txtSearcProduct";
-            txtSearcProduct.Size = new Size(508, 26);
+            txtSearcProduct.Size = new Size(508, 31);
             txtSearcProduct.TabIndex = 3;
             // 
             // panel1
@@ -159,13 +161,13 @@
             label1.Font = new Font("Sitka Heading", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(256, 18);
             label1.Name = "label1";
-            label1.Size = new Size(146, 35);
+            label1.Size = new Size(182, 43);
             label1.TabIndex = 0;
             label1.Text = "Product Data";
             // 
             // ItPanelProduct
             // 
-            AutoScaleDimensions = new SizeF(8F, 21F);
+            AutoScaleDimensions = new SizeF(10F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.HighlightText;
             ClientSize = new Size(660, 557);
