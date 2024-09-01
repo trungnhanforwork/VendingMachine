@@ -61,7 +61,6 @@ namespace VendingMachineForm
             frmAddOrUpdate.checkAdd = true;
             frmAddOrUpdate.ShowDialog();
             FillDataGridView("");
-
         }
 
         private void btnUpdateCategory_Click(object sender, EventArgs e)
@@ -113,16 +112,17 @@ namespace VendingMachineForm
                 var comfirmResult = MessageBox.Show($"Are you sure deleting category {selected.Name}", "Comfirm Delete", MessageBoxButtons.YesNo);
                 if (comfirmResult == DialogResult.Yes)
                 {
-
-                    categoryService.DeleteCategory(selected.CategoryId);
+                    
                     if (!string.IsNullOrEmpty(selected.ImagePath) && File.Exists(selected.ImagePath))
                     {
                         File.Delete(selected.ImagePath);
                     }
+                    categoryService.DeleteCategory(selected.CategoryId);
                     MessageBox.Show("Category deleted successfully.");
-                    FillDataGridView("");
+                   
                 }
             }
+            FillDataGridView("");
         }
 
         private void btnSearchCategory_Click(object sender, EventArgs e)

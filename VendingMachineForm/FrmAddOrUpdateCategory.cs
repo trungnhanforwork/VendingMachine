@@ -44,7 +44,7 @@ namespace VendingMachineForm
 
                 if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
                 {
-                    savedImagePath = SaveImageToProjectFolder(imagePath); // savedImagePath: cập nhập lại địa chỉ của máy đã lưu imagePath trong bin
+                    savedImagePath = SaveImageToProjectFolder(imagePath, "CategoryImages"); // savedImagePath: cập nhập lại địa chỉ của máy đã lưu imagePath trong bin
                 }
 
                 var category = new Category
@@ -75,7 +75,7 @@ namespace VendingMachineForm
                     }
 
                     // Save the new image to the project folder
-                    savedImagePath = SaveImageToProjectFolder(imagePath); // savedImagePath: cập nhập lại địa chỉ của máy đã lưu imagePath trong bin
+                    savedImagePath = SaveImageToProjectFolder(imagePath, "CategoryImages"); // savedImagePath: cập nhập lại địa chỉ của máy đã lưu imagePath trong bin
                 }
 
                 // Cập nhập lại category
@@ -130,10 +130,10 @@ namespace VendingMachineForm
         }
 
 
-        private string SaveImageToProjectFolder(string filePath)
+        private string SaveImageToProjectFolder(string filePath, string subDirectory)
         {
             // Determine the path of the Images folder within your project
-            string imagesDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");
+            string imagesDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images", subDirectory);
 
             // Ensure the directory exists
             if (!Directory.Exists(imagesDirectory))
@@ -151,7 +151,7 @@ namespace VendingMachineForm
             File.Copy(filePath, targetPath, true); // The 'true' flag will overwrite if the file already exists
 
             // Return the relative path to store in the database
-            return $"Images\\{fileName}";
+            return Path.Combine("Images", subDirectory, fileName);
         }
 
         private void pictureBoxCategoryImage_Click(object sender, EventArgs e)

@@ -1,0 +1,54 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Entities;
+using Repositories;
+
+namespace Services
+{
+    public class ProductService
+    {
+        private ProductRepository _productRepository;
+        public ProductService()
+        {
+            _productRepository = new ProductRepository();
+        }
+        public void AddProduct(Product product)
+        {
+            if (product == null)
+            {
+                throw new ArgumentNullException(nameof(product));
+            }
+            _productRepository.AddProduct(product);
+        }
+
+        public void UpdateProduct(Product product)
+        {
+            if (product == null)
+            {
+                throw new ArgumentNullException(nameof(product));
+            }
+            if (product.ProductId <= 0)
+            {
+                throw new ArgumentException("Product ID must be greater than 0.", nameof(product.ProductId));
+            }
+            _productRepository.UpdateProduct(product);
+        }
+
+        public void DeleteProduct(int productId)
+        {
+            if (productId <= 0)
+            {
+                throw new ArgumentException("Product ID must be greater than 0.", nameof(productId));
+            }
+            _productRepository.DeleteProduct(productId);
+        }
+
+        public List<Product> GetAllProducts()
+        {
+            return _productRepository.GetAllProducts();
+        }
+    }
+}

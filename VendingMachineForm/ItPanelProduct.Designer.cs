@@ -69,6 +69,7 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(658, 368);
             panel3.TabIndex = 10;
+       
             // 
             // btnDeleteProduct
             // 
@@ -102,9 +103,11 @@
             btnAddProduct.TabIndex = 4;
             btnAddProduct.Text = "Add";
             btnAddProduct.UseVisualStyleBackColor = true;
+            btnAddProduct.Click += btnAddProduct_Click;
             // 
             // dgvProducts
             // 
+            dgvProducts.Anchor = AnchorStyles.Top;
             dgvProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvProducts.Location = new Point(3, 3);
             dgvProducts.Name = "dgvProducts";
@@ -141,7 +144,7 @@
             txtSearcProduct.Location = new Point(3, 27);
             txtSearcProduct.Margin = new Padding(3, 4, 3, 4);
             txtSearcProduct.Name = "txtSearcProduct";
-            txtSearcProduct.Size = new Size(508, 31);
+            txtSearcProduct.Size = new Size(508, 26);
             txtSearcProduct.TabIndex = 3;
             // 
             // panel1
@@ -161,13 +164,13 @@
             label1.Font = new Font("Sitka Heading", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(256, 18);
             label1.Name = "label1";
-            label1.Size = new Size(182, 43);
+            label1.Size = new Size(146, 35);
             label1.TabIndex = 0;
             label1.Text = "Product Data";
             // 
             // ItPanelProduct
             // 
-            AutoScaleDimensions = new SizeF(10F, 28F);
+            AutoScaleDimensions = new SizeF(8F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.HighlightText;
             ClientSize = new Size(660, 557);
@@ -177,6 +180,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "ItPanelProduct";
             Text = "ItPanelProduct";
+            Load += ItPanelProduct_Load;
             panel4.ResumeLayout(false);
             panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();
