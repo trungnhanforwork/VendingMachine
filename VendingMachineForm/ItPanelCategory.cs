@@ -21,25 +21,33 @@ namespace VendingMachineForm
             InitializeComponent();
         }
 
-        private void FillDataGridView()
+        private void FillDataGridView(string name)
         {
-            var categories = categoryService.GetAllCategories();
+            List<Category> categories;
+            if (name == null || name == "")
+            {
+               categories = categoryService.GetAllCategories();
+                
+            }
+            else
+            {
+                categories = categoryService.GetCategoriesByCondition(name);
+            }
             dataGridView1.AutoGenerateColumns = true;
             if (categories != null && categories.Any())
             {
-
                 dataGridView1.DataSource = categories;
             }
             else
             {
-                MessageBox.Show("No data found to display in DataGridView.");
+                MessageBox.Show("No category found");
             }
         }
 
         private void ItPanelCategory_Load(object sender, EventArgs e)
         {
             categoryService = new CategoryService();
-            FillDataGridView();
+            FillDataGridView("");
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -52,7 +60,7 @@ namespace VendingMachineForm
             FrmAddOrUpdateCategory frmAddOrUpdate = new FrmAddOrUpdateCategory();
             frmAddOrUpdate.checkAdd = true;
             frmAddOrUpdate.ShowDialog();
-            FillDataGridView();
+            FillDataGridView("");
 
         }
 
@@ -68,7 +76,7 @@ namespace VendingMachineForm
             frmAddOrUpdate.category = selected;
             frmAddOrUpdate.checkUpdate = true;
             frmAddOrUpdate.ShowDialog();
-            FillDataGridView();
+            FillDataGridView("");
 
         }
 
@@ -77,7 +85,8 @@ namespace VendingMachineForm
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 selected = (Category)dataGridView1.SelectedRows[0].DataBoundItem;
-            } else
+            }
+            else
             {
                 selected = null;
             }
@@ -98,21 +107,34 @@ namespace VendingMachineForm
             if (selected == null)
             {
                 MessageBox.Show("Please choose one catgory to delete!");
-            } else
+            }
+            else
             {
-                var comfirmResult = MessageBox.Show($"Are you sure deleting category {selected.Name}","Comfirm Delete", MessageBoxButtons.YesNo);
+                var comfirmResult = MessageBox.Show($"Are you sure deleting category {selected.Name}", "Comfirm Delete", MessageBoxButtons.YesNo);
                 if (comfirmResult == DialogResult.Yes)
                 {
-                    
+
                     categoryService.DeleteCategory(selected.CategoryId);
                     if (!string.IsNullOrEmpty(selected.ImagePath) && File.Exists(selected.ImagePath))
                     {
                         File.Delete(selected.ImagePath);
                     }
                     MessageBox.Show("Category deleted successfully.");
-                    FillDataGridView();
+                    FillDataGridView("");
                 }
             }
+        }
+
+        private void btnSearchCategory_Click(object sender, EventArgs e)
+        {
+            string name = txtSearch.Text;
+            if (name == "")
+            {
+                FillDataGridView("");
+                return;
+            }
+            FillDataGridView(name);
+
         }
     }
 }

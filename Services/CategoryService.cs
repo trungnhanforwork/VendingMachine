@@ -30,5 +30,11 @@ namespace Services
         {
             categoryRepository.DeleteCategory(categoryId);
         }
+        public List<Category> GetCategoriesByCondition(string name)
+        {
+            var categories = categoryRepository.GetAllCategories();
+            var categoriesByCondition = categories.FindAll(category => category.Name.ToLower().Contains(name));
+            return categoriesByCondition;
+        }
     }
 }

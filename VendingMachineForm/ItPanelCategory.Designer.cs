@@ -36,7 +36,7 @@
             dataGridView1 = new DataGridView();
             panel2 = new Panel();
             btnSearchCategory = new Button();
-            textBox3 = new TextBox();
+            txtSearch = new TextBox();
             panel1 = new Panel();
             label1 = new Label();
             panel4.SuspendLayout();
@@ -124,7 +124,7 @@
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel2.Controls.Add(btnSearchCategory);
-            panel2.Controls.Add(textBox3);
+            panel2.Controls.Add(txtSearch);
             panel2.Location = new Point(0, 99);
             panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
@@ -134,22 +134,23 @@
             // btnSearchCategory
             // 
             btnSearchCategory.Anchor = AnchorStyles.Top;
-            btnSearchCategory.Location = new Point(527, 29);
+            btnSearchCategory.Location = new Point(528, 25);
             btnSearchCategory.Margin = new Padding(3, 4, 3, 4);
             btnSearchCategory.Name = "btnSearchCategory";
-            btnSearchCategory.Size = new Size(87, 26);
+            btnSearchCategory.Size = new Size(87, 34);
             btnSearchCategory.TabIndex = 5;
             btnSearchCategory.Text = "Search";
             btnSearchCategory.UseVisualStyleBackColor = true;
+            btnSearchCategory.Click += btnSearchCategory_Click;
             // 
-            // textBox3
+            // txtSearch
             // 
-            textBox3.Anchor = AnchorStyles.Top;
-            textBox3.Location = new Point(12, 29);
-            textBox3.Margin = new Padding(3, 4, 3, 4);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(490, 26);
-            textBox3.TabIndex = 3;
+            txtSearch.Anchor = AnchorStyles.Top;
+            txtSearch.Location = new Point(12, 29);
+            txtSearch.Margin = new Padding(3, 4, 3, 4);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(490, 26);
+            txtSearch.TabIndex = 3;
             // 
             // panel1
             // 
@@ -207,7 +208,7 @@
         private Button btnAddCategory;
         private DataGridView dataGridView1;
         private Panel panel2;
-        private TextBox textBox3;
+        private TextBox txtSearch;
         private Panel panel1;
         private Label label1;
         private Button btnSearchCategory;
