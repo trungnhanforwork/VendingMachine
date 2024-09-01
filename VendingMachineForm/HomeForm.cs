@@ -1,4 +1,8 @@
-﻿namespace VendingMachineForm
+﻿using System.Data.SqlClient;
+using System.Data;
+
+
+namespace VendingMachineForm
 {
     public partial class HomeForm : Form
     {
@@ -63,6 +67,31 @@
             splitContainer1.Panel2.Controls.Add(f);
             f.Show();
             currentPanelForm = f;
+        }
+       
+        private void btnOrders_Click(object sender, EventArgs e)
+        {
+            if (currentPanelForm != null && !currentPanelForm.IsDisposed)
+            {
+                currentPanelForm.Close();  // Đóng Form trước khi Dispose
+                currentPanelForm.Dispose();
+            }
+            ItPanelOrder f = new ItPanelOrder();
+            if (f.Parent != null)
+            {
+                f.Parent.Controls.Remove(f);
+            }
+            // Thiết lập TopLevel, Dock và Parent cho UserControl
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            splitContainer1.Panel2.Controls.Add(f);
+            f.Show();
+            currentPanelForm = f;
+        }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

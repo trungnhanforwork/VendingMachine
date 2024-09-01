@@ -31,14 +31,14 @@
             panel1 = new Panel();
             label1 = new Label();
             panel2 = new Panel();
-            dataGridView1 = new DataGridView();
+            dgvOrder = new DataGridView();
             panel3 = new Panel();
+            btnDel = new Button();
+            btnEdit = new Button();
             btnAdd = new Button();
-            this.btnUpdate = new Button();
-            this.btnDel = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvOrder).BeginInit();
             panel3.SuspendLayout();
             SuspendLayout();
             // 
@@ -46,15 +46,15 @@
             // 
             panel1.Controls.Add(label1);
             panel1.Location = new Point(3, 2);
-            panel1.Margin = new Padding(4, 4, 4, 4);
+            panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(774, 67);
+            panel1.Size = new Size(699, 67);
             panel1.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(315, 20);
+            label1.Location = new Point(297, 23);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(128, 28);
@@ -63,83 +63,90 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(dataGridView1);
-            panel2.Location = new Point(3, 117);
+            panel2.Controls.Add(dgvOrder);
+            panel2.Location = new Point(3, 88);
             panel2.Name = "panel2";
-            panel2.Size = new Size(542, 383);
+            panel2.Size = new Size(498, 344);
             panel2.TabIndex = 1;
             // 
-            // dataGridView1
+            // dgvOrder
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(4, 6);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(535, 377);
-            dataGridView1.TabIndex = 0;
+            dgvOrder.BackgroundColor = SystemColors.ControlLight;
+            dgvOrder.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvOrder.Location = new Point(4, 3);
+            dgvOrder.Name = "dgvOrder";
+            dgvOrder.RowHeadersWidth = 51;
+            dgvOrder.Size = new Size(491, 338);
+            dgvOrder.TabIndex = 0;
+            dgvOrder.CellContentClick += dgvOrder_CellContentClick;
             // 
             // panel3
             // 
-            panel3.Controls.Add(this.btnDel);
-            panel3.Controls.Add(this.btnUpdate);
+            panel3.Controls.Add(btnDel);
+            panel3.Controls.Add(btnEdit);
             panel3.Controls.Add(btnAdd);
-            panel3.Location = new Point(559, 115);
+            panel3.Location = new Point(507, 88);
             panel3.Name = "panel3";
-            panel3.Size = new Size(208, 385);
+            panel3.Size = new Size(195, 344);
             panel3.TabIndex = 2;
+            // 
+            // btnDel
+            // 
+            btnDel.BackColor = Color.Red;
+            btnDel.ForeColor = Color.Yellow;
+            btnDel.Location = new Point(49, 213);
+            btnDel.Name = "btnDel";
+            btnDel.Size = new Size(107, 46);
+            btnDel.TabIndex = 0;
+            btnDel.Text = "Delete";
+            btnDel.UseVisualStyleBackColor = false;
+            btnDel.Click += button1_Click;
+            // 
+            // btnEdit
+            // 
+            btnEdit.BackColor = Color.Red;
+            btnEdit.ForeColor = Color.Yellow;
+            btnEdit.Location = new Point(49, 119);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(107, 46);
+            btnEdit.TabIndex = 0;
+            btnEdit.Text = "Edit";
+            btnEdit.UseVisualStyleBackColor = false;
+            btnEdit.Click += button1_Click;
             // 
             // btnAdd
             // 
             btnAdd.BackColor = Color.Red;
-            btnAdd.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnAdd.ForeColor = Color.Yellow;
-            btnAdd.Location = new Point(37, 32);
+            btnAdd.Location = new Point(49, 21);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(139, 49);
+            btnAdd.Size = new Size(107, 46);
             btnAdd.TabIndex = 0;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = false;
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = Color.Red;
-            this.btnUpdate.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            this.btnUpdate.ForeColor = Color.Yellow;
-            this.btnUpdate.Location = new Point(37, 120);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new Size(139, 49);
-            this.btnUpdate.TabIndex = 0;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = false;
-            // 
-            // btnDel
-            // 
-            this.btnDel.BackColor = Color.Red;
-            this.btnDel.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            this.btnDel.ForeColor = Color.Yellow;
-            this.btnDel.Location = new Point(37, 204);
-            this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new Size(139, 49);
-            this.btnDel.TabIndex = 0;
-            this.btnDel.Text = "Delete";
-            this.btnDel.UseVisualStyleBackColor = false;
+            btnAdd.Click += button1_Click;
             // 
             // ItPanelOrder
             // 
-            AutoScaleDimensions = new SizeF(11F, 28F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(779, 512);
+            AutoScaleMode = AutoScaleMode.Inherit;
+            BackColor = Color.White;
+            ClientSize = new Size(714, 444);
+            ControlBox = false;
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Enabled = false;
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Margin = new Padding(4, 4, 4, 4);
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4);
             Name = "ItPanelOrder";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Order";
+            TopMost = true;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvOrder).EndInit();
             panel3.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -149,11 +156,11 @@
         private Panel panel1;
         private Label label1;
         private Panel panel2;
-        private DataGridView dataGridView1;
+        private DataGridView dgvOrder;
         private Panel panel3;
         private Button button4;
-        private Button button3;
-        private Button button2;
+        private Button btnDel;
         private Button btnAdd;
+        private Button btnEdit;
     }
 }

@@ -76,7 +76,7 @@
             btnDeleteProduct.Location = new Point(545, 182);
             btnDeleteProduct.Margin = new Padding(3, 4, 3, 4);
             btnDeleteProduct.Name = "btnDeleteProduct";
-            btnDeleteProduct.Size = new Size(89, 29);
+            btnDeleteProduct.Size = new Size(89, 34);
             btnDeleteProduct.TabIndex = 6;
             btnDeleteProduct.Text = "Delete";
             btnDeleteProduct.UseVisualStyleBackColor = true;
@@ -87,7 +87,7 @@
             btnUpdateProduct.Location = new Point(545, 112);
             btnUpdateProduct.Margin = new Padding(3, 4, 3, 4);
             btnUpdateProduct.Name = "btnUpdateProduct";
-            btnUpdateProduct.Size = new Size(89, 29);
+            btnUpdateProduct.Size = new Size(89, 37);
             btnUpdateProduct.TabIndex = 5;
             btnUpdateProduct.Text = "Update";
             btnUpdateProduct.UseVisualStyleBackColor = true;
@@ -98,7 +98,7 @@
             btnAddProduct.Location = new Point(547, 42);
             btnAddProduct.Margin = new Padding(3, 4, 3, 4);
             btnAddProduct.Name = "btnAddProduct";
-            btnAddProduct.Size = new Size(89, 32);
+            btnAddProduct.Size = new Size(89, 34);
             btnAddProduct.TabIndex = 4;
             btnAddProduct.Text = "Add";
             btnAddProduct.UseVisualStyleBackColor = true;

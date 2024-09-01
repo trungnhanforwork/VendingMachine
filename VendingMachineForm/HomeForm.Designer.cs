@@ -50,18 +50,19 @@
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(label2);
-            panel1.Location = new Point(-3, -2);
+            panel1.Location = new Point(-3, -3);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1151, 58);
+            panel1.Size = new Size(1315, 77);
             panel1.TabIndex = 0;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Sitka Heading", 20.2499981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(430, 5);
+            label2.Location = new Point(491, 7);
             label2.Name = "label2";
-            label2.Size = new Size(337, 39);
+            label2.Size = new Size(422, 49);
             label2.TabIndex = 0;
             label2.Text = "Vending Machine Manager";
             // 
@@ -70,9 +71,10 @@
             panel4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel4.BackColor = SystemColors.ControlDarkDark;
             panel4.Controls.Add(label1);
-            panel4.Location = new Point(-3, 643);
+            panel4.Location = new Point(-3, 857);
+            panel4.Margin = new Padding(3, 4, 3, 4);
             panel4.Name = "panel4";
-            panel4.Size = new Size(1151, 47);
+            panel4.Size = new Size(1315, 63);
             panel4.TabIndex = 3;
             // 
             // label1
@@ -80,16 +82,17 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(508, 23);
+            label1.Location = new Point(581, 31);
             label1.Name = "label1";
-            label1.Size = new Size(143, 17);
+            label1.Size = new Size(190, 23);
             label1.TabIndex = 0;
             label1.Text = "© 2024 KYN Company";
             // 
             // splitContainer1
             // 
             splitContainer1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            splitContainer1.Location = new Point(0, 51);
+            splitContainer1.Location = new Point(0, 68);
+            splitContainer1.Margin = new Padding(3, 4, 3, 4);
             splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -99,8 +102,13 @@
             splitContainer1.Panel1.Controls.Add(btnProducts);
             splitContainer1.Panel1.Controls.Add(btnCategories);
             splitContainer1.Panel1.Paint += splitContainer1_Panel1_Paint;
-            splitContainer1.Size = new Size(1145, 582);
-            splitContainer1.SplitterDistance = 378;
+            // 
+            // splitContainer1.Panel2
+            // 
+            splitContainer1.Panel2.Paint += splitContainer1_Panel2_Paint;
+            splitContainer1.Size = new Size(1309, 776);
+            splitContainer1.SplitterDistance = 432;
+            splitContainer1.SplitterWidth = 5;
             splitContainer1.TabIndex = 4;
             // 
             // button4
@@ -110,9 +118,10 @@
             button4.ForeColor = Color.Gold;
             button4.Image = (Image)resources.GetObject("button4.Image");
             button4.ImageAlign = ContentAlignment.MiddleLeft;
-            button4.Location = new Point(25, 525);
+            button4.Location = new Point(29, 700);
+            button4.Margin = new Padding(3, 4, 3, 4);
             button4.Name = "button4";
-            button4.Size = new Size(314, 45);
+            button4.Size = new Size(359, 60);
             button4.TabIndex = 6;
             button4.Text = "Exit";
             button4.UseVisualStyleBackColor = false;
@@ -125,12 +134,14 @@
             btnOrders.ForeColor = Color.Gold;
             btnOrders.Image = (Image)resources.GetObject("btnOrders.Image");
             btnOrders.ImageAlign = ContentAlignment.MiddleLeft;
-            btnOrders.Location = new Point(22, 146);
+            btnOrders.Location = new Point(25, 195);
+            btnOrders.Margin = new Padding(3, 4, 3, 4);
             btnOrders.Name = "btnOrders";
-            btnOrders.Size = new Size(314, 45);
+            btnOrders.Size = new Size(359, 60);
             btnOrders.TabIndex = 5;
             btnOrders.Text = "Orders";
             btnOrders.UseVisualStyleBackColor = false;
+            btnOrders.Click += btnOrders_Click;
             // 
             // btnProducts
             // 
@@ -139,9 +150,10 @@
             btnProducts.ForeColor = Color.Gold;
             btnProducts.Image = (Image)resources.GetObject("btnProducts.Image");
             btnProducts.ImageAlign = ContentAlignment.MiddleLeft;
-            btnProducts.Location = new Point(22, 89);
+            btnProducts.Location = new Point(25, 119);
+            btnProducts.Margin = new Padding(3, 4, 3, 4);
             btnProducts.Name = "btnProducts";
-            btnProducts.Size = new Size(314, 45);
+            btnProducts.Size = new Size(359, 60);
             btnProducts.TabIndex = 4;
             btnProducts.Text = "Products";
             btnProducts.UseVisualStyleBackColor = false;
@@ -154,9 +166,10 @@
             btnCategories.ForeColor = Color.Gold;
             btnCategories.Image = (Image)resources.GetObject("btnCategories.Image");
             btnCategories.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCategories.Location = new Point(21, 31);
+            btnCategories.Location = new Point(24, 41);
+            btnCategories.Margin = new Padding(3, 4, 3, 4);
             btnCategories.Name = "btnCategories";
-            btnCategories.Size = new Size(314, 45);
+            btnCategories.Size = new Size(359, 60);
             btnCategories.TabIndex = 2;
             btnCategories.Text = "Categories";
             btnCategories.UseVisualStyleBackColor = false;
@@ -164,15 +177,16 @@
             // 
             // HomeForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = SystemColors.HighlightText;
-            ClientSize = new Size(1142, 688);
+            ClientSize = new Size(1305, 917);
             Controls.Add(splitContainer1);
             Controls.Add(panel4);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "HomeForm";
