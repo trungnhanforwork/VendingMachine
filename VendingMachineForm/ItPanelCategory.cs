@@ -19,6 +19,8 @@ namespace VendingMachineForm
         public ItPanelCategory()
         {
             InitializeComponent();
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
 
         private void FillDataGridView(string name)

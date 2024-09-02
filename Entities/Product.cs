@@ -14,8 +14,5 @@ namespace Entities
         public int Stock { get; set; }
         public string ImagePath { get; set; }
         public int CategoryId { get; set; }
-
-        // Optional: Navigation property to the Category
-        public Category Category { get; set; } 
     }
 }

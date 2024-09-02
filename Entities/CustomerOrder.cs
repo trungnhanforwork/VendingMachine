@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Order
+    public class CustomerOrder
     {
         public int OrderId { get; set; } // Primary Key
         public DateTime OrderDate { get; set; } = DateTime.Now; // Default GETDATE()

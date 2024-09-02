@@ -48,7 +48,7 @@
             lblHeading.Location = new Point(45, 35);
             lblHeading.Name = "lblHeading";
             lblHeading.Size = new Size(250, 30);
-            lblHeading.TabIndex = 1;
+            lblHeading.TabIndex = 0;
             lblHeading.Text = "ADD | UPDATE CATEGORY";
             // 
             // lblCategoryId
@@ -86,14 +86,14 @@
             txtId.Location = new Point(187, 102);
             txtId.Name = "txtId";
             txtId.Size = new Size(317, 28);
-            txtId.TabIndex = 5;
+            txtId.TabIndex = 0;
             // 
             // txtName
             // 
             txtName.Location = new Point(187, 158);
             txtName.Name = "txtName";
             txtName.Size = new Size(317, 28);
-            txtName.TabIndex = 6;
+            txtName.TabIndex = 1;
             // 
             // pictureBoxCategoryImage
             // 
@@ -111,7 +111,7 @@
             btnUpload.Location = new Point(321, 251);
             btnUpload.Name = "btnUpload";
             btnUpload.Size = new Size(81, 33);
-            btnUpload.TabIndex = 8;
+            btnUpload.TabIndex = 2;
             btnUpload.Text = "Upload";
             btnUpload.UseVisualStyleBackColor = true;
             btnUpload.Click += btnUpload_Click;
@@ -121,7 +121,7 @@
             btnSaveCategory.Location = new Point(119, 382);
             btnSaveCategory.Name = "btnSaveCategory";
             btnSaveCategory.Size = new Size(343, 43);
-            btnSaveCategory.TabIndex = 9;
+            btnSaveCategory.TabIndex = 3;
             btnSaveCategory.Text = "Save";
             btnSaveCategory.UseVisualStyleBackColor = true;
             btnSaveCategory.Click += button1_Click;
@@ -130,6 +130,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.DarkRed;
             ClientSize = new Size(580, 521);
             Controls.Add(btnSaveCategory);
@@ -143,7 +144,10 @@
             Controls.Add(lblHeading);
             Font = new Font("Sitka Heading", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(3, 5, 3, 5);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FrmAddOrUpdateCategory";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             Load += FrmAddOrUpdateCategory_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBoxCategoryImage).EndInit();

@@ -69,7 +69,6 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(658, 368);
             panel3.TabIndex = 10;
-       
             // 
             // btnDeleteProduct
             // 
@@ -81,6 +80,7 @@
             btnDeleteProduct.TabIndex = 6;
             btnDeleteProduct.Text = "Delete";
             btnDeleteProduct.UseVisualStyleBackColor = true;
+            btnDeleteProduct.Click += btnDeleteProduct_Click;
             // 
             // btnUpdateProduct
             // 
@@ -92,6 +92,7 @@
             btnUpdateProduct.TabIndex = 5;
             btnUpdateProduct.Text = "Update";
             btnUpdateProduct.UseVisualStyleBackColor = true;
+            btnUpdateProduct.Click += btnUpdateProduct_Click;
             // 
             // btnAddProduct
             // 
@@ -115,6 +116,7 @@
             dgvProducts.Size = new Size(522, 362);
             dgvProducts.TabIndex = 0;
             dgvProducts.CellContentClick += dgvProducts_CellContentClick;
+            dgvProducts.SelectionChanged += dgvProducts_SelectionChanged;
             // 
             // panel2
             // 

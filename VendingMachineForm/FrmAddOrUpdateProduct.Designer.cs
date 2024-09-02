@@ -52,7 +52,7 @@
             btnSave.Location = new Point(97, 513);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(432, 43);
-            btnSave.TabIndex = 18;
+            btnSave.TabIndex = 6;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
@@ -62,7 +62,7 @@
             btnUpload.Location = new Point(366, 329);
             btnUpload.Name = "btnUpload";
             btnUpload.Size = new Size(83, 39);
-            btnUpload.TabIndex = 17;
+            btnUpload.TabIndex = 4;
             btnUpload.Text = "Upload";
             btnUpload.UseVisualStyleBackColor = true;
             btnUpload.Click += btnUpload_Click;
@@ -82,14 +82,14 @@
             txtName.Location = new Point(212, 176);
             txtName.Name = "txtName";
             txtName.Size = new Size(317, 28);
-            txtName.TabIndex = 15;
+            txtName.TabIndex = 1;
             // 
             // txtId
             // 
             txtId.Location = new Point(212, 120);
             txtId.Name = "txtId";
             txtId.Size = new Size(317, 28);
-            txtId.TabIndex = 14;
+            txtId.TabIndex = 0;
             // 
             // label4
             // 
@@ -137,7 +137,7 @@
             txtPrice.Location = new Point(212, 235);
             txtPrice.Name = "txtPrice";
             txtPrice.Size = new Size(137, 28);
-            txtPrice.TabIndex = 20;
+            txtPrice.TabIndex = 2;
             // 
             // label1
             // 
@@ -154,7 +154,7 @@
             txtStock.Location = new Point(439, 238);
             txtStock.Name = "txtStock";
             txtStock.Size = new Size(90, 28);
-            txtStock.TabIndex = 22;
+            txtStock.TabIndex = 3;
             // 
             // label2
             // 
@@ -180,9 +180,10 @@
             // 
             cboCategory.FormattingEnabled = true;
             cboCategory.Location = new Point(210, 433);
+            cboCategory.MaxDropDownItems = 5;
             cboCategory.Name = "cboCategory";
             cboCategory.Size = new Size(139, 31);
-            cboCategory.TabIndex = 24;
+            cboCategory.TabIndex = 5;
             // 
             // FrmAddOrUpdateProduct
             // 

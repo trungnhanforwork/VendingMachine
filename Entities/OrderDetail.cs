@@ -15,7 +15,7 @@ namespace Entities
         public decimal UnitPrice { get; set; }
 
         // Navigation properties (optional, if you are using Entity Framework)
-        public Order Order { get; set; } // Reference to CustomerOrder
+        public CustomerOrder Order { get; set; } // Reference to CustomerOrder
                                                  // public Product Product { get; set; } // Uncomment if you have a Product class
     }
 }

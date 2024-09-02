@@ -23,21 +23,27 @@ namespace VendingMachineForm
         private string imagePath = null; // imagePath lay khi nhan upload button
         private void FrmAddOrUpdateProduct_Load(object sender, EventArgs e)
         {
+            cboCategory.DataSource = categoryService.GetAllCategories();
+            cboCategory.DisplayMember = "Name";
+            cboCategory.ValueMember = "CategoryId";
             if (checkAdd)
             {
                 lblHeading.Text = "ADD PRODUCT";
                 lblProductID.Hide();
                 txtId.Hide();
-                cboCategory.DataSource = categoryService.GetAllCategories();
-                cboCategory.DisplayMember = "Name";
-                cboCategory.ValueMember = "CategoryId";
             }
             else
             {
                 lblHeading.Text = "UPDATE PRODUCT";
                 txtId.Text = product.ProductId.ToString();
                 txtId.Enabled = false;
+                txtName.Text = product.Name;
+                txtPrice.Text = product.Price.ToString();
+                txtStock.Text = product.Stock.ToString();
+                pictureBoxProductImage.Image = Image.FromFile(product.ImagePath);
+                cboCategory.SelectedValue = product.CategoryId;
             }
+
         }
         public FrmAddOrUpdateProduct()
         {
@@ -74,6 +80,7 @@ namespace VendingMachineForm
                 string productName = txtName.Text.Trim();
                 string productPriceText = txtPrice.Text.Trim();
                 string productStockText = txtStock.Text.Trim();
+                int categoryId = int.Parse(cboCategory.SelectedValue.ToString());
                 if (string.IsNullOrWhiteSpace(productName))
                 {
                     MessageBox.Show("Please enter a product name.");
@@ -109,7 +116,8 @@ namespace VendingMachineForm
                     Name = productName,
                     Price = productPrice,
                     Stock = productStock,
-                    ImagePath = savedImagePath
+                    ImagePath = savedImagePath,
+                    CategoryId = categoryId
                 };
 
                 // Save the product using the service

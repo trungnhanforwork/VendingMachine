@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Entities;
+using Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,43 +15,62 @@ namespace VendingMachineForm
 {
     public partial class ItPanelOrder : Form
     {
+        private CustomerOrderService customerOrderService;
         public ItPanelOrder()
         {
+            customerOrderService = new CustomerOrderService();
             InitializeComponent();
+            dgvOrder.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvOrder.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
-        private string _connectionString = "Data Source=ACER\\MYSQL2022;Initial Catalog=VendingMachine;Integrated Security=True";
-        private void LoadOrderData()
-        {
-            SqlConnection connection = new SqlConnection(_connectionString);
-            {
-                try
-                {
-                    connection.Open();
-                    string query = "SELECT * FROM OrderDetail"; 
-                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
 
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-
-                    // Đổ dữ liệu vào DataGridView
-                    dgvOrder.DataSource = dataTable;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-            }
-        }
 
         private void dgvOrder_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            LoadOrderData();
+
+        }
+        private void FillDataGridView(string status)
+        {
+            List<CustomerOrder> orders;
+            if (status == "Completed")
+            {
+                orders = customerOrderService.GetAllOrders().FindAll(order => order.Status == status).OrderBy(order => order.OrderDate).ToList();
+            }
+            else if (status == "Pending")
+            {
+                orders = customerOrderService.GetAllOrders().FindAll(order => order.Status == status).OrderBy(order => order.OrderDate).ToList();
+            }
+            else
+            {
+                orders = customerOrderService.GetAllOrders().OrderBy(order => order.OrderDate).ThenBy(order => order.Status).ToList();
+            }
+
+            dgvOrder.AutoGenerateColumns = true;
+            if (orders != null && orders.Any())
+            {
+                dgvOrder.DataSource = orders;
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnShowAll_Click(object sender, EventArgs e)
         {
-            
+            FillDataGridView("");
         }
-        
+
+        private void ItPanelOrder_Load(object sender, EventArgs e)
+        {
+            FillDataGridView("");
+        }
+
+        private void btnShowCompleted_Click(object sender, EventArgs e)
+        {
+            FillDataGridView("Completed");
+        }
+
+        private void btnShowPending_Click(object sender, EventArgs e)
+        {
+            FillDataGridView("Pending");
+
+        }
     }
 }
