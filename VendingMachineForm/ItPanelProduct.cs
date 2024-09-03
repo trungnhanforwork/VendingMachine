@@ -25,8 +25,17 @@ namespace VendingMachineForm
         private void FillDataGridView(string name)
         {
             List<Product> products;
-            products = productService.GetAllProducts();
             dgvProducts.AutoGenerateColumns = true;
+
+
+            if (name != null && name != "") 
+            {
+                products = productService.GetProductsByCondition(name);
+            }
+            else
+            {
+                products = productService.GetAllProducts();
+            }
             if (products != null && products.Any())
             {
                 dgvProducts.DataSource = products;
@@ -35,6 +44,7 @@ namespace VendingMachineForm
             {
                 MessageBox.Show("No product found");
             }
+
         }
         private void dgvProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -95,6 +105,18 @@ namespace VendingMachineForm
                 productService.DeleteProduct(selectedProduct.ProductId);
                 FillDataGridView("");
             }
+
+        }
+
+        private void btnSearchProduct_Click(object sender, EventArgs e)
+        {
+            string name = txtSearcProduct.Text.ToLower();
+            if (name == "")
+            {
+                FillDataGridView("");
+                return;
+            }
+            FillDataGridView(name);
 
         }
     }

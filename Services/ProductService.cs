@@ -50,5 +50,12 @@ namespace Services
         {
             return _productRepository.GetAllProducts();
         }
+
+        public List<Product> GetProductsByCondition(string name)
+        {
+            var products = _productRepository.GetAllProducts();
+            var productsByCondition = products.FindAll(category => category.Name.ToLower().Contains(name));
+            return productsByCondition;
+        }
     }
 }

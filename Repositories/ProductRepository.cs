@@ -5,12 +5,12 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace Repositories
 {
     public class ProductRepository
     {
-        private string _connectionString = "Data Source=DESKTOP-KG5LI9R;Initial Catalog=VendingMachine;Integrated Security=True";
+        // Nhan private string _connectionString = "Data Source=DESKTOP-KG5LI9R;Initial Catalog=VendingMachine;Integrated Security=True";
+        private string _connectionString = "Server=KHUONGDAVIDPC; Database=VendingMachine; Integrated Security=True;";
         public ProductRepository()
         {
 
@@ -44,6 +44,7 @@ namespace Repositories
                     }
                 }
             }
+            Console.WriteLine(products.Count);
             return products;
         }
         public void AddProduct(Product product)
