@@ -6,10 +6,10 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            CategoryService categoryService = new CategoryService();
-            var categories = categoryService.GetAllCategories();
+            ProductService productService = new ProductService();
+            var products = productService.GetProductsByCategoryId(11);
 
-            categories.ForEach(category => Console.WriteLine(category.CategoryId + " " + category.Name + " " + category.ImagePath));
+            products.ForEach(product => Console.WriteLine(product.CategoryId + " " + product.Name + " " + product.ImagePath));
         }
     }
 }

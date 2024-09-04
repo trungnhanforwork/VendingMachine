@@ -50,5 +50,10 @@ namespace Services
         {
             return _productRepository.GetAllProducts();
         }
+
+        public List<Product> GetProductsByCategoryId(int categoryId)
+        {
+            return _productRepository.GetProductsByCategoryId(categoryId);
+        }
     }
 }

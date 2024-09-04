@@ -105,5 +105,39 @@ namespace Repositories
             }
         }
 
+        public List<Product> GetProductsByCategoryId(int categoryId)
+        {
+            var products = new List<Product>();
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                string sql = "SELECT * FROM Product WHERE CategoryId = @CategoryId";
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@CategoryId", categoryId);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            products.Add(new Product
+                            {
+                                ProductId = (int)reader["ProductId"],
+                                Name = reader["Name"].ToString(),
+                                Price = (decimal)reader["Price"],
+                                Stock = (int)reader["Stock"],
+                                ImagePath = reader["ImagePath"].ToString(),
+                                CategoryId = (int)reader["CategoryId"]
+                            });
+                        }
+                    }
+                }
+            }
+
+            return products;
+        }
+
     }
 }

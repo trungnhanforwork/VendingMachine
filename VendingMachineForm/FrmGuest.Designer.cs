@@ -28,12 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FrmGuest";
+            flowLayoutPanelCategories = new FlowLayoutPanel();
+            flowLayoutPanelProducts = new FlowLayoutPanel();
+            SuspendLayout();
+            // 
+            // flowLayoutPanelCategories
+            // 
+            flowLayoutPanelCategories.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanelCategories.Location = new Point(12, 13);
+            flowLayoutPanelCategories.Name = "flowLayoutPanelCategories";
+            flowLayoutPanelCategories.Size = new Size(164, 467);
+            flowLayoutPanelCategories.TabIndex = 0;
+            // 
+            // flowLayoutPanelProducts
+            // 
+            flowLayoutPanelProducts.AutoScroll = true;
+            flowLayoutPanelProducts.Location = new Point(182, 15);
+            flowLayoutPanelProducts.Name = "flowLayoutPanelProducts";
+            flowLayoutPanelProducts.Size = new Size(750, 530);
+            flowLayoutPanelProducts.TabIndex = 1;
+            // 
+            // FrmGuest
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
+            ClientSize = new Size(944, 629);
+            Controls.Add(flowLayoutPanelProducts);
+            Controls.Add(flowLayoutPanelCategories);
+            Name = "FrmGuest";
+            Text = "FrmGuest";
+            Load += FrmGuest_Load;
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private FlowLayoutPanel flowLayoutPanelCategories;
+        private FlowLayoutPanel flowLayoutPanelProducts;
     }
 }
