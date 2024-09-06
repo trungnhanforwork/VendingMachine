@@ -129,7 +129,7 @@ namespace VendingMachineForm
 
         private void btnSearchCategory_Click(object sender, EventArgs e)
         {
-            string name = txtSearch.Text;
+            string name = txtSearch.Text.ToLower();
             if (name == "")
             {
                 FillDataGridView("");

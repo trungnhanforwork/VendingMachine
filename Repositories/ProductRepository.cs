@@ -5,12 +5,12 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace Repositories
 {
     public class ProductRepository
     {
         private string _connectionString = "Data Source=DESKTOP-KG5LI9R;Initial Catalog=VendingMachine;Integrated Security=True";
+        // Khuong private string _connectionString = "Server=KHUONGDAVIDPC; Database=VendingMachine; Integrated Security=True;";
         public ProductRepository()
         {
 
@@ -44,6 +44,7 @@ namespace Repositories
                     }
                 }
             }
+            Console.WriteLine(products.Count);
             return products;
         }
         public void AddProduct(Product product)
@@ -139,5 +140,38 @@ namespace Repositories
             return products;
         }
 
+        public Product? GetProductsById(int id)
+        {
+            Product product = null;
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                string sql = "SELECT * FROM Product WHERE ProductId = @ProductId";
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@ProductId", id);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            product = new Product
+                            {
+                                ProductId = (int)reader["ProductId"],
+                                Name = reader["Name"].ToString(),
+                                Price = (decimal)reader["Price"],
+                                Stock = (int)reader["Stock"],
+                                ImagePath = reader["ImagePath"].ToString(),
+                                CategoryId = (int)reader["CategoryId"]
+                            };
+                        }
+                    }
+                }
+            }
+
+            return product;
+        }
     }
 }

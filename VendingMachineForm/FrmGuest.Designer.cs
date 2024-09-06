@@ -30,32 +30,50 @@
         {
             flowLayoutPanelCategories = new FlowLayoutPanel();
             flowLayoutPanelProducts = new FlowLayoutPanel();
+            btnCart = new Button();
             SuspendLayout();
             // 
             // flowLayoutPanelCategories
             // 
             flowLayoutPanelCategories.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanelCategories.Location = new Point(12, 13);
+            flowLayoutPanelCategories.Location = new Point(13, 20);
+            flowLayoutPanelCategories.Margin = new Padding(4, 5, 4, 5);
             flowLayoutPanelCategories.Name = "flowLayoutPanelCategories";
-            flowLayoutPanelCategories.Size = new Size(164, 467);
+            flowLayoutPanelCategories.Size = new Size(184, 595);
             flowLayoutPanelCategories.TabIndex = 0;
             // 
             // flowLayoutPanelProducts
             // 
             flowLayoutPanelProducts.AutoScroll = true;
-            flowLayoutPanelProducts.Location = new Point(182, 15);
+            flowLayoutPanelProducts.Font = new Font("Sitka Heading", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            flowLayoutPanelProducts.Location = new Point(205, 20);
+            flowLayoutPanelProducts.Margin = new Padding(4, 5, 4, 5);
             flowLayoutPanelProducts.Name = "flowLayoutPanelProducts";
-            flowLayoutPanelProducts.Size = new Size(750, 530);
+            flowLayoutPanelProducts.Size = new Size(857, 640);
             flowLayoutPanelProducts.TabIndex = 1;
+            // 
+            // btnCart
+            // 
+            btnCart.Location = new Point(13, 624);
+            btnCart.Margin = new Padding(4);
+            btnCart.Name = "btnCart";
+            btnCart.Size = new Size(184, 36);
+            btnCart.TabIndex = 2;
+            btnCart.Text = "My Cart";
+            btnCart.UseVisualStyleBackColor = true;
+            btnCart.Click += btnCart_Click;
             // 
             // FrmGuest
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            ClientSize = new Size(944, 629);
+            ClientSize = new Size(1079, 711);
+            Controls.Add(btnCart);
             Controls.Add(flowLayoutPanelProducts);
             Controls.Add(flowLayoutPanelCategories);
+            Font = new Font("Sitka Heading", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "FrmGuest";
             Text = "FrmGuest";
             Load += FrmGuest_Load;
@@ -66,5 +84,6 @@
 
         private FlowLayoutPanel flowLayoutPanelCategories;
         private FlowLayoutPanel flowLayoutPanelProducts;
+        private Button btnCart;
     }
 }

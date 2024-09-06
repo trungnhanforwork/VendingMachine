@@ -9,11 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace VendingMachineForm
 {
     public partial class FrmGuest : Form
     {
+        Dictionary<int, (Product product, int quantity)> cart = new Dictionary<int, (Product product, int quantity)>();
         private CategoryService categoryService;
         private ProductService productService;
         public FrmGuest()
@@ -68,14 +70,16 @@ namespace VendingMachineForm
                 // Add the Label to the category panel
                 categoryPanel.Controls.Add(label);
 
-                // Optional: Handle Click Event for categoryPanel to do something when clicked
-                categoryPanel.Click += (s, e) => CategoryPanel_Click(s, e);
+                // Attach click event handlers to both PictureBox and Label
+                pictureBox.Click += CategoryPanel_Click;
+                label.Click += CategoryPanel_Click;
+                categoryPanel.Click += CategoryPanel_Click;
 
                 // Add the category panel to the FlowLayoutPanel
                 flowLayoutPanelCategories.Controls.Add(categoryPanel);
             }
         }
-        
+
 
         private void FrmGuest_Load(object sender, EventArgs e)
         {
@@ -102,7 +106,7 @@ namespace VendingMachineForm
             {
                 Panel productPanel = new Panel
                 {
-                    Width = 200,
+                    Width = 220,
                     Height = 100,
                     Margin = new Padding(10),
                     BorderStyle = BorderStyle.FixedSingle
@@ -133,9 +137,11 @@ namespace VendingMachineForm
 
                 Button addToCartButton = new Button
                 {
-                    Text = "Add to Cart",
-                    Location = new Point(100, 70)
+                    Image = (Image)Properties.Resources.shopping_bag16x16,
+                    Location = new Point(100, 70),
+                    Tag = product.ProductId
                 };
+                addToCartButton.Click += AddToCartButton_Click;
 
                 productPanel.Controls.Add(pictureBox);
                 productPanel.Controls.Add(nameLabel);
@@ -144,6 +150,34 @@ namespace VendingMachineForm
 
                 flowLayoutPanelProducts.Controls.Add(productPanel);
             }
+        }
+
+        private void AddToCartButton_Click(object sender, EventArgs e)
+        {
+            Button addToCartButton = (Button)sender;
+            int productId = (int)addToCartButton.Tag;
+
+            // Find the product by its ID
+            Product selectedProduct = productService.GetProductById(productId);
+
+            // Check if the product is already in the cart
+            if (cart.ContainsKey(productId))
+            {
+                // If it's already in the cart, increment the quantity
+                cart[productId] = (selectedProduct, cart[productId].quantity + 1);
+            }
+            else
+            {
+                // Otherwise, add it to the cart with a quantity of 1
+                cart[productId] = (selectedProduct, 1);
+            }
+            
+        }
+
+        private void btnCart_Click(object sender, EventArgs e)
+        {
+            CartForm cartForm = new CartForm(cart);
+            cartForm.ShowDialog();
         }
     }
 }

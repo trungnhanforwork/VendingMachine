@@ -51,9 +51,22 @@ namespace Services
             return _productRepository.GetAllProducts();
         }
 
+        public List<Product> GetProductsByCondition(string name)
+        {
+            var products = _productRepository.GetAllProducts();
+            var productsByCondition = products.FindAll(category => category.Name.ToLower().Contains(name));
+            return productsByCondition;
+        }
+
         public List<Product> GetProductsByCategoryId(int categoryId)
         {
             return _productRepository.GetProductsByCategoryId(categoryId);
+        }
+
+        public Product GetProductById(int id)
+        {
+            var product = _productRepository.GetProductsById(id);
+            return product;
         }
     }
 }

@@ -11,9 +11,10 @@ namespace Repositories
 {
     public class CustomerOrderRepository
     {
+        //Nhan
         private string _connectionString = "Data Source=DESKTOP-KG5LI9R;Initial Catalog=VendingMachine;Integrated Security=True";
-        // private string _connectionString = @"Data Source=ACER\MYSQL2022;Initial Catalog=VendingMachine;Integrated Security=True";
-
+        //Yen private string _connectionString = @"Data Source=ACER\MYSQL2022;Initial Catalog=VendingMachine;Integrated Security=True";
+        //Khuong private string _connectionString = "Server=KHUONGDAVIDPC; Database=VendingMachine; Integrated Security=True;";
         public CustomerOrderRepository()
         {
         }
@@ -42,6 +43,29 @@ namespace Repositories
                 }
             }
             return orders;
+        }
+
+        public int Create(CustomerOrder order)
+        {
+            int orderId;
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(
+                    "INSERT INTO CustomerOrder (OrderDate, TotalAmount, Status) " +
+                    "OUTPUT INSERTED.OrderId " +
+                    "VALUES (@OrderDate, @TotalAmount, @Status)", connection))
+                {
+                    command.Parameters.AddWithValue("@OrderDate", order.OrderDate);
+                    command.Parameters.AddWithValue("@TotalAmount", order.TotalAmount);
+                    command.Parameters.AddWithValue("@Status", order.Status);
+
+                    // Execute the command and get the inserted OrderId
+                    orderId = (int)command.ExecuteScalar();
+                }
+            }
+            return orderId;
         }
     }
 }
