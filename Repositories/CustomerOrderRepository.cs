@@ -12,9 +12,9 @@ namespace Repositories
     public class CustomerOrderRepository
     {
         //Nhan
-        private string _connectionString = "Data Source=DESKTOP-KG5LI9R;Initial Catalog=VendingMachine;Integrated Security=True";
+        //private string _connectionString = "Data Source=DESKTOP-KG5LI9R;Initial Catalog=VendingMachine;Integrated Security=True";
         //Yen private string _connectionString = @"Data Source=ACER\MYSQL2022;Initial Catalog=VendingMachine;Integrated Security=True";
-        //Khuong private string _connectionString = "Server=KHUONGDAVIDPC; Database=VendingMachine; Integrated Security=True;";
+        private string _connectionString = "Server=KHUONGDAVIDPC; Database=VendingMachine; Integrated Security=True;";
         public CustomerOrderRepository()
         {
         }
@@ -66,6 +66,36 @@ namespace Repositories
                 }
             }
             return orderId;
+        }
+        public List<CustomerOrder> GetOrdersByMonth(int month)
+        {
+            var orders = new List<CustomerOrder>();
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                string sql = "SELECT OrderId, OrderDate, TotalAmount, Status FROM CustomerOrder WHERE MONTH(OrderDate) = @Month";
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    // Thêm tham số cho câu lệnh SQL
+                    command.Parameters.AddWithValue("@Month", month);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var order = new CustomerOrder
+                            {
+                                OrderId = reader.GetInt32(0),
+                                OrderDate = reader.GetDateTime(1),
+                                TotalAmount = reader.GetDecimal(2),
+                                Status = reader.GetString(3)
+                            };
+                            orders.Add(order);
+                        }
+                    }
+                }
+            }
+            return orders;
         }
     }
 }

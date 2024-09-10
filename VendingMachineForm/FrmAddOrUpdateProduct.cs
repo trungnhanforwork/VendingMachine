@@ -71,7 +71,7 @@ namespace VendingMachineForm
                 }
             }
         }
-        
+
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -125,7 +125,7 @@ namespace VendingMachineForm
 
                 MessageBox.Show("Product added successfully.");
             }
-            
+
             this.Close();
         }
         private string SaveImageToProjectFolder(string filePath, string subDirectory)
@@ -150,6 +150,11 @@ namespace VendingMachineForm
 
             // Return the relative path to store in the database
             return Path.Combine("Images", subDirectory, fileName);
+        }
+
+        private void pictureBoxProductImage_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

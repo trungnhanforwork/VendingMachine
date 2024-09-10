@@ -171,13 +171,18 @@ namespace VendingMachineForm
                 // Otherwise, add it to the cart with a quantity of 1
                 cart[productId] = (selectedProduct, 1);
             }
-            
+
         }
 
         private void btnCart_Click(object sender, EventArgs e)
         {
             CartForm cartForm = new CartForm(cart);
             cartForm.ShowDialog();
+        }
+
+        private void flowLayoutPanelCategories_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

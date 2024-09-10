@@ -36,5 +36,9 @@ namespace Services
             }
             return orderId;
         }
+        public List<CustomerOrder> GetOrdersByMonth(int month) 
+        {
+            return customerOrderRepository.GetOrdersByMonth(month);
+        }
     }
 }

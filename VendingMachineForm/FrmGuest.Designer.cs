@@ -41,6 +41,7 @@
             flowLayoutPanelCategories.Name = "flowLayoutPanelCategories";
             flowLayoutPanelCategories.Size = new Size(184, 595);
             flowLayoutPanelCategories.TabIndex = 0;
+            flowLayoutPanelCategories.Paint += flowLayoutPanelCategories_Paint;
             // 
             // flowLayoutPanelProducts
             // 
@@ -65,7 +66,7 @@
             // 
             // FrmGuest
             // 
-            AutoScaleDimensions = new SizeF(8F, 23F);
+            AutoScaleDimensions = new SizeF(11F, 29F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             ClientSize = new Size(1079, 711);

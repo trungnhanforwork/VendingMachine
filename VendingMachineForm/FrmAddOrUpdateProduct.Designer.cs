@@ -76,19 +76,20 @@
             pictureBoxProductImage.Size = new Size(102, 93);
             pictureBoxProductImage.TabIndex = 16;
             pictureBoxProductImage.TabStop = false;
+            pictureBoxProductImage.Click += pictureBoxProductImage_Click;
             // 
             // txtName
             // 
             txtName.Location = new Point(212, 176);
             txtName.Name = "txtName";
-            txtName.Size = new Size(317, 28);
+            txtName.Size = new Size(317, 33);
             txtName.TabIndex = 1;
             // 
             // txtId
             // 
             txtId.Location = new Point(212, 120);
             txtId.Name = "txtId";
-            txtId.Size = new Size(317, 28);
+            txtId.Size = new Size(317, 33);
             txtId.TabIndex = 0;
             // 
             // label4
@@ -97,7 +98,7 @@
             label4.ForeColor = Color.Yellow;
             label4.Location = new Point(90, 329);
             label4.Name = "label4";
-            label4.Size = new Size(56, 23);
+            label4.Size = new Size(69, 29);
             label4.TabIndex = 13;
             label4.Text = "Image:";
             // 
@@ -107,7 +108,7 @@
             label3.ForeColor = Color.Yellow;
             label3.Location = new Point(90, 176);
             label3.Name = "label3";
-            label3.Size = new Size(54, 23);
+            label3.Size = new Size(67, 29);
             label3.TabIndex = 12;
             label3.Text = "Name:";
             // 
@@ -117,7 +118,7 @@
             lblProductID.ForeColor = Color.Yellow;
             lblProductID.Location = new Point(90, 120);
             lblProductID.Name = "lblProductID";
-            lblProductID.Size = new Size(89, 23);
+            lblProductID.Size = new Size(113, 29);
             lblProductID.TabIndex = 11;
             lblProductID.Text = "Product ID: ";
             // 
@@ -128,7 +129,7 @@
             lblHeading.ForeColor = Color.Yellow;
             lblHeading.Location = new Point(90, 53);
             lblHeading.Name = "lblHeading";
-            lblHeading.Size = new Size(241, 30);
+            lblHeading.Size = new Size(310, 39);
             lblHeading.TabIndex = 10;
             lblHeading.Text = "ADD | UPDATE PRODUCT";
             // 
@@ -136,7 +137,7 @@
             // 
             txtPrice.Location = new Point(212, 235);
             txtPrice.Name = "txtPrice";
-            txtPrice.Size = new Size(137, 28);
+            txtPrice.Size = new Size(137, 33);
             txtPrice.TabIndex = 2;
             // 
             // label1
@@ -145,7 +146,7 @@
             label1.ForeColor = Color.Yellow;
             label1.Location = new Point(90, 235);
             label1.Name = "label1";
-            label1.Size = new Size(47, 23);
+            label1.Size = new Size(60, 29);
             label1.TabIndex = 19;
             label1.Text = "Price:";
             // 
@@ -153,7 +154,7 @@
             // 
             txtStock.Location = new Point(439, 238);
             txtStock.Name = "txtStock";
-            txtStock.Size = new Size(90, 28);
+            txtStock.Size = new Size(90, 33);
             txtStock.TabIndex = 3;
             // 
             // label2
@@ -162,7 +163,7 @@
             label2.ForeColor = Color.Yellow;
             label2.Location = new Point(366, 238);
             label2.Name = "label2";
-            label2.Size = new Size(51, 23);
+            label2.Size = new Size(64, 29);
             label2.TabIndex = 21;
             label2.Text = "Stock:";
             // 
@@ -172,7 +173,7 @@
             label5.ForeColor = Color.Yellow;
             label5.Location = new Point(97, 433);
             label5.Name = "label5";
-            label5.Size = new Size(74, 23);
+            label5.Size = new Size(94, 29);
             label5.TabIndex = 23;
             label5.Text = "Category:";
             // 
@@ -182,12 +183,12 @@
             cboCategory.Location = new Point(210, 433);
             cboCategory.MaxDropDownItems = 5;
             cboCategory.Name = "cboCategory";
-            cboCategory.Size = new Size(139, 31);
+            cboCategory.Size = new Size(139, 37);
             cboCategory.TabIndex = 5;
             // 
             // FrmAddOrUpdateProduct
             // 
-            AutoScaleDimensions = new SizeF(8F, 23F);
+            AutoScaleDimensions = new SizeF(11F, 29F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.Maroon;
