@@ -18,46 +18,42 @@ namespace VendingMachineForm
         {
             customerOrderService = new CustomerOrderService();
             InitializeComponent();
+            dvgOrder.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dvgOrder.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
         public void loadMonth()
         {
+            cboMonth.Items.Clear();
+
+            // Get the current month
+            int currentMonth = DateTime.Now.Month;
+            cboMonth.DisplayMember = "Text"; // What will be displayed
+            cboMonth.ValueMember = "Value";  // The value behind each item
+
             for (int i = 1; i <= 12; i++)
             {
-                // Tạo một panel cho từng tháng
-                Panel MonthPanel = new Panel
-                {
-                    Width = 80,  // Điều chỉnh chiều rộng
-                    Height = 35, // Điều chỉnh chiều cao
-                    Margin = new Padding(10),
-                    BorderStyle = BorderStyle.FixedSingle,
-                    Tag = i // Gán giá trị tháng vào thuộc tính Tag
-                };
-
-                // Tạo một label cho tháng
-                Label label = new Label
-                {
-                    Text = "Tháng " + i.ToString(),
-                    Dock = DockStyle.Bottom,
-                    TextAlign = ContentAlignment.MiddleCenter
-                };
-
-                // Thêm label vào panel
-                MonthPanel.Controls.Add(label);
-
-                // Gắn sự kiện Click, MouseHover, và MouseLeave
-                label.Click += MonthPanel_Click;
-                label.MouseHover += MonthPanel_Hover;
-                label.MouseLeave += MonthPanel_Leave;
-
-                MonthPanel.Click += MonthPanel_Click;
-                MonthPanel.MouseHover += MonthPanel_Hover;
-                MonthPanel.MouseLeave += MonthPanel_Leave;
-
-                // Thêm panel vào FlowLayoutPanel
-                flowLayoutPanelMonth.Controls.Add(MonthPanel);
+                // Add each month to the ComboBox
+                cboMonth.Items.Add(new { Text = i.ToString(), Value = i });
             }
-            List<CustomerOrder> customerOrders = customerOrderService.GetAllOrders();
-            dvgOrder.DataSource = customerOrders;
+
+            // Set the current month as the selected value
+            cboMonth.SelectedIndex = currentMonth - 1; // ComboBox index starts from 0
+
+            // Event handler for when the user selects a month
+            cboMonth.SelectedIndexChanged += (s, e) =>
+            {
+                // Get the selected month
+                var selectedMonth = ((dynamic)cboMonth.SelectedItem).Value;
+
+                // You can filter orders by the selected month if needed, or just reload the orders
+                List<CustomerOrder> customerOrders = customerOrderService.GetOrdersByMonth(selectedMonth);
+                dvgOrder.DataSource = customerOrders;
+                AddTotalRow();
+            };
+
+            // Initial load of orders for the current month
+            List<CustomerOrder> currentMonthOrders = customerOrderService.GetOrdersByMonth(currentMonth);
+            dvgOrder.DataSource = currentMonthOrders;
             AddTotalRow();
         }
 
@@ -136,7 +132,7 @@ namespace VendingMachineForm
         {
             new CustomerOrder
             {
-                Status = "Tổng", // Đặt giá trị "Tổng:" cho OrderId
+                Status = "Total", // Đặt giá trị "Tổng:" cho OrderId
                 OrderDate = DateTime.MinValue,
                 TotalAmount = sum
             }
@@ -155,5 +151,14 @@ namespace VendingMachineForm
             loadMonth();
         }
 
+        private void dvgOrder_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

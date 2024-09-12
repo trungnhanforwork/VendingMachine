@@ -40,5 +40,17 @@ namespace Services
         {
             return customerOrderRepository.GetOrdersByMonth(month);
         }
+        public bool UpdateOrderStatus(int orderId, string newStatus)
+        {
+
+            CustomerOrder order = customerOrderRepository.GetOrderById(orderId);
+            if (order.Status == "Completed" && newStatus == "Completed")
+            {
+                throw new InvalidOperationException("Order is already completed.");
+            }
+
+            // Update the status in the database
+            return customerOrderRepository.UpdateOrderStatus(orderId, newStatus);
+        }
     }
 }

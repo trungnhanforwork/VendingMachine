@@ -73,6 +73,7 @@
             dgvOrder.Size = new Size(689, 359);
             dgvOrder.TabIndex = 0;
             dgvOrder.CellContentClick += dgvOrder_CellContentClick;
+            dgvOrder.CellMouseDoubleClick += dgvOrder_CellMouseDoubleClick;
             // 
             // panel2
             // 
