@@ -16,6 +16,7 @@ namespace VendingMachineForm
     public partial class ItPanelOrder : Form
     {
         private CustomerOrderService customerOrderService;
+        
         public ItPanelOrder()
         {
             customerOrderService = new CustomerOrderService();
@@ -71,6 +72,32 @@ namespace VendingMachineForm
         {
             FillDataGridView("Pending");
 
+        }
+
+        private void dgvOrder_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                // Get the selected order from the DataGridView
+                var selectedOrder = (CustomerOrder)dgvOrder.Rows[e.RowIndex].DataBoundItem;
+
+                // Check if the order is not already completed
+                if (selectedOrder.Status != "Completed")
+                {
+                    // Update the order status to 'Completed'
+                    selectedOrder.Status = "Completed";
+
+                    // Save the changes via the service (assuming there is a method like this in your service)
+                    customerOrderService.UpdateOrderStatus(selectedOrder.OrderId, "Completed");
+
+                    // Refresh the DataGridView to reflect the updated order status
+                    FillDataGridView("Pending"); // You may need to refresh with the appropriate status filter
+                }
+                else
+                {
+                    MessageBox.Show("Order is already completed.");
+                }
+            }
         }
     }
 }
