@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,11 +16,13 @@ namespace VendingMachineForm
 {
     public partial class CartForm : Form
     {
-        
+
         private Dictionary<int, (Product product, int quantity)> cart;
+        private ProductService productService;
 
         public CartForm(Dictionary<int, (Product product, int quantity)> cart)
         {
+            productService = new ProductService();
             InitializeComponent();
             this.cart = cart;
 
@@ -172,10 +175,74 @@ namespace VendingMachineForm
 
             // Clear the cart after saving the order
             cart.Clear();
-            flowLayoutPanelCart.Controls.Clear();
+
+
+            // Print the bill
+            PrintBill(order, orderDetails, orderId);
 
             // Optionally, display a message to the user
-            MessageBox.Show($"Order {orderId} created successfully!");
+            DialogResult result = MessageBox.Show($"Order {orderId} created successfully!", "Order Created", MessageBoxButtons.OK);
+            if (result == DialogResult.OK)
+            {
+
+                cart.Clear();
+
+                // Clear the flow layout panel
+                flowLayoutPanelCart.Controls.Clear();
+
+                // Close the current form
+                this.Close();
+            }
+        }
+        private void PrintBill(CustomerOrder order, List<OrderDetail> orderDetails, int orderId)
+        {
+            PrintDocument printDocument = new PrintDocument();
+            printDocument.PrintPage += (sender, e) =>
+            {
+                Graphics graphics = e.Graphics;
+                float yPos = 100;
+                int leftMargin = e.MarginBounds.Left;
+
+                // Print the header with order information
+                graphics.DrawString($"Order Number: {orderId}", new Font("Arial", 12), Brushes.Black, leftMargin, yPos);
+                yPos += 25;
+                graphics.DrawString($"Total Amount: {order.TotalAmount:C}", new Font("Arial", 12), Brushes.Black, leftMargin, yPos);
+                yPos += 40;
+
+                // Print the table header
+                graphics.DrawString("Product Name", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, leftMargin, yPos);
+                graphics.DrawString("Quantity", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, leftMargin + 200, yPos);
+                graphics.DrawString("Unit Price", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, leftMargin + 300, yPos);
+                graphics.DrawString("Total", new Font("Arial", 12, FontStyle.Bold), Brushes.Black, leftMargin + 400, yPos);
+                yPos += 30;
+
+                // Print each product detail
+                foreach (var detail in orderDetails)
+                {
+                    var product = productService.GetProductById(detail.ProductId); // Fetch the product details from DB or cache
+                    graphics.DrawString(product.Name, new Font("Arial", 12), Brushes.Black, leftMargin, yPos);
+                    graphics.DrawString(detail.Quantity.ToString(), new Font("Arial", 12), Brushes.Black, leftMargin + 200, yPos);
+                    graphics.DrawString(detail.UnitPrice.ToString("C"), new Font("Arial", 12), Brushes.Black, leftMargin + 300, yPos);
+                    graphics.DrawString((detail.UnitPrice * detail.Quantity).ToString("C"), new Font("Arial", 12), Brushes.Black, leftMargin + 400, yPos);
+                    yPos += 25;
+                }
+            };
+
+            // Create a print dialog and show it to the user
+            PrintDialog printDialog = new PrintDialog
+            {
+                Document = printDocument
+            };
+
+            if (printDialog.ShowDialog() == DialogResult.OK)
+            {
+                printDocument.Print();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

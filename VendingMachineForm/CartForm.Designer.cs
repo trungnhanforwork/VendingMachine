@@ -62,6 +62,7 @@
             button2.TabIndex = 2;
             button2.Text = "Continue order...";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // label1
             // 
