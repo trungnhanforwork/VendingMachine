@@ -10,8 +10,8 @@ namespace Repositories
 {
     public class CategoryRepository
     {
-        private string _connectionString = "Data Source=DESKTOP-KG5LI9R;Initial Catalog=VendingMachine;Integrated Security=True";
-        //YEN  private string _connectionString = "Data Source=ACER\\MYSQL2022;Initial Catalog=VendingMachine;Integrated Security=True";
+        //private string _connectionString = "Data Source=DESKTOP-KG5LI9R;Initial Catalog=VendingMachine;Integrated Security=True";
+        private string _connectionString = @"Server=ACER\MYSQL2022;Database=VendingMachine;Integrated Security=True;";
         //Khuong private string _connectionString = "Server=KHUONGDAVIDPC; Database=VendingMachine; Integrated Security=True;";
         public CategoryRepository() { }
         public List<Category> GetAllCategories()
@@ -58,6 +58,7 @@ namespace Repositories
                 }
             }
         }
+
 
         public void UpdateCategory(Category category)
         {

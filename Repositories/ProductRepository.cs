@@ -9,7 +9,9 @@ namespace Repositories
 {
     public class ProductRepository
     {
-        private string _connectionString = "Data Source=DESKTOP-KG5LI9R;Initial Catalog=VendingMachine;Integrated Security=True";
+        // chua sua con
+        // private string _connectionString = @"Data Source=ACER\MYSQL2022;Initial Catalog=Vending_Machine;Integrated Security=True;";
+        private string _connectionString = @"Server=ACER\MYSQL2022;Database=VendingMachine;Integrated Security=True;";
         //private string _connectionString = "Server=KHUONGDAVIDPC; Database=VendingMachine; Integrated Security=True;";
         public ProductRepository()
         {

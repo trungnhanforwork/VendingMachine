@@ -44,19 +44,22 @@
             // 
             label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
-            label1.Font = new Font("Sitka Heading", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(290, 19);
+            label1.Font = new Font("Sitka Heading", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(275, 7);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(151, 35);
+            label1.Size = new Size(194, 43);
             label1.TabIndex = 0;
             label1.Text = "ORDER DATA";
             // 
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top;
+            panel1.BackColor = Color.FromArgb(192, 0, 0);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(3, 2);
+            panel1.Font = new Font("Sitka Heading", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            panel1.ForeColor = Color.Yellow;
+            panel1.Location = new Point(96, 2);
             panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
             panel1.Size = new Size(699, 67);
@@ -65,12 +68,12 @@
             // dgvOrder
             // 
             dgvOrder.Anchor = AnchorStyles.Top;
-            dgvOrder.BackgroundColor = SystemColors.ControlLight;
+            dgvOrder.BackgroundColor = SystemColors.ButtonHighlight;
             dgvOrder.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvOrder.Location = new Point(7, 6);
+            dgvOrder.Location = new Point(3, 0);
             dgvOrder.Name = "dgvOrder";
             dgvOrder.RowHeadersWidth = 51;
-            dgvOrder.Size = new Size(689, 359);
+            dgvOrder.Size = new Size(777, 434);
             dgvOrder.TabIndex = 0;
             dgvOrder.CellContentClick += dgvOrder_CellContentClick;
             dgvOrder.CellMouseDoubleClick += dgvOrder_CellMouseDoubleClick;
@@ -79,49 +82,52 @@
             // 
             panel2.Anchor = AnchorStyles.Top;
             panel2.Controls.Add(dgvOrder);
-            panel2.Location = new Point(3, 176);
+            panel2.Location = new Point(55, 176);
             panel2.Name = "panel2";
-            panel2.Size = new Size(699, 368);
+            panel2.Size = new Size(783, 434);
             panel2.TabIndex = 1;
             // 
             // btnShowPending
             // 
             btnShowPending.Anchor = AnchorStyles.Top;
-            btnShowPending.Location = new Point(12, 99);
+            btnShowPending.BackColor = Color.Yellow;
+            btnShowPending.Location = new Point(105, 99);
             btnShowPending.Name = "btnShowPending";
-            btnShowPending.Size = new Size(215, 40);
+            btnShowPending.Size = new Size(215, 61);
             btnShowPending.TabIndex = 2;
             btnShowPending.Text = "Show Pending Orders";
-            btnShowPending.UseVisualStyleBackColor = true;
+            btnShowPending.UseVisualStyleBackColor = false;
             btnShowPending.Click += btnShowPending_Click;
             // 
             // btnShowCompleted
             // 
             btnShowCompleted.Anchor = AnchorStyles.Top;
-            btnShowCompleted.Location = new Point(266, 99);
+            btnShowCompleted.BackColor = Color.FromArgb(255, 255, 128);
+            btnShowCompleted.Location = new Point(359, 99);
             btnShowCompleted.Name = "btnShowCompleted";
-            btnShowCompleted.Size = new Size(216, 40);
+            btnShowCompleted.Size = new Size(216, 61);
             btnShowCompleted.TabIndex = 3;
             btnShowCompleted.Text = "Show Completed Orders";
-            btnShowCompleted.UseVisualStyleBackColor = true;
+            btnShowCompleted.UseVisualStyleBackColor = false;
             btnShowCompleted.Click += btnShowCompleted_Click;
             // 
             // btnShowAll
             // 
             btnShowAll.Anchor = AnchorStyles.Top;
-            btnShowAll.Location = new Point(518, 99);
+            btnShowAll.BackColor = Color.FromArgb(255, 255, 128);
+            btnShowAll.Location = new Point(611, 99);
             btnShowAll.Name = "btnShowAll";
-            btnShowAll.Size = new Size(178, 40);
+            btnShowAll.Size = new Size(178, 61);
             btnShowAll.TabIndex = 4;
             btnShowAll.Text = "Show All Orders";
-            btnShowAll.UseVisualStyleBackColor = true;
+            btnShowAll.UseVisualStyleBackColor = false;
             btnShowAll.Click += btnShowAll_Click;
             // 
             // ItPanelOrder
             // 
             AutoScaleMode = AutoScaleMode.Inherit;
-            BackColor = Color.White;
-            ClientSize = new Size(708, 556);
+            BackColor = Color.FromArgb(192, 0, 0);
+            ClientSize = new Size(895, 645);
             ControlBox = false;
             Controls.Add(btnShowAll);
             Controls.Add(btnShowCompleted);
