@@ -55,7 +55,7 @@
             panel4.Location = new Point(1, 7);
             panel4.Margin = new Padding(3, 4, 3, 4);
             panel4.Name = "panel4";
-            panel4.Size = new Size(658, 548);
+            panel4.Size = new Size(993, 675);
             panel4.TabIndex = 9;
             // 
             // panel3
@@ -67,53 +67,58 @@
             panel3.Controls.Add(dgvProducts);
             panel3.Location = new Point(0, 187);
             panel3.Name = "panel3";
-            panel3.Size = new Size(658, 368);
+            panel3.Size = new Size(993, 489);
             panel3.TabIndex = 10;
+            panel3.Paint += panel3_Paint;
             // 
             // btnDeleteProduct
             // 
             btnDeleteProduct.Anchor = AnchorStyles.Top;
-            btnDeleteProduct.Location = new Point(545, 182);
+            btnDeleteProduct.BackColor = Color.Yellow;
+            btnDeleteProduct.Location = new Point(865, 274);
             btnDeleteProduct.Margin = new Padding(3, 4, 3, 4);
             btnDeleteProduct.Name = "btnDeleteProduct";
-            btnDeleteProduct.Size = new Size(89, 34);
+            btnDeleteProduct.Size = new Size(109, 61);
             btnDeleteProduct.TabIndex = 6;
             btnDeleteProduct.Text = "Delete";
-            btnDeleteProduct.UseVisualStyleBackColor = true;
+            btnDeleteProduct.UseVisualStyleBackColor = false;
             btnDeleteProduct.Click += btnDeleteProduct_Click;
             // 
             // btnUpdateProduct
             // 
             btnUpdateProduct.Anchor = AnchorStyles.Top;
-            btnUpdateProduct.Location = new Point(545, 112);
+            btnUpdateProduct.BackColor = Color.Yellow;
+            btnUpdateProduct.Location = new Point(865, 154);
             btnUpdateProduct.Margin = new Padding(3, 4, 3, 4);
             btnUpdateProduct.Name = "btnUpdateProduct";
-            btnUpdateProduct.Size = new Size(89, 37);
+            btnUpdateProduct.Size = new Size(109, 64);
             btnUpdateProduct.TabIndex = 5;
             btnUpdateProduct.Text = "Update";
-            btnUpdateProduct.UseVisualStyleBackColor = true;
+            btnUpdateProduct.UseVisualStyleBackColor = false;
             btnUpdateProduct.Click += btnUpdateProduct_Click;
             // 
             // btnAddProduct
             // 
             btnAddProduct.Anchor = AnchorStyles.Top;
-            btnAddProduct.Location = new Point(547, 42);
+            btnAddProduct.BackColor = Color.Yellow;
+            btnAddProduct.Location = new Point(865, 32);
             btnAddProduct.Margin = new Padding(3, 4, 3, 4);
             btnAddProduct.Name = "btnAddProduct";
-            btnAddProduct.Size = new Size(89, 34);
+            btnAddProduct.Size = new Size(109, 62);
             btnAddProduct.TabIndex = 4;
             btnAddProduct.Text = "Add";
-            btnAddProduct.UseVisualStyleBackColor = true;
+            btnAddProduct.UseVisualStyleBackColor = false;
             btnAddProduct.Click += btnAddProduct_Click;
             // 
             // dgvProducts
             // 
             dgvProducts.Anchor = AnchorStyles.Top;
+            dgvProducts.BackgroundColor = Color.White;
             dgvProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProducts.Location = new Point(3, 3);
+            dgvProducts.Location = new Point(0, 0);
             dgvProducts.Name = "dgvProducts";
             dgvProducts.RowHeadersWidth = 51;
-            dgvProducts.Size = new Size(522, 362);
+            dgvProducts.Size = new Size(839, 471);
             dgvProducts.TabIndex = 0;
             dgvProducts.CellContentClick += dgvProducts_CellContentClick;
             dgvProducts.SelectionChanged += dgvProducts_SelectionChanged;
@@ -126,28 +131,29 @@
             panel2.Location = new Point(0, 99);
             panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(658, 81);
+            panel2.Size = new Size(993, 81);
             panel2.TabIndex = 9;
             // 
             // btnSearchProduct
             // 
             btnSearchProduct.Anchor = AnchorStyles.Top;
-            btnSearchProduct.Location = new Point(547, 22);
+            btnSearchProduct.BackColor = Color.Yellow;
+            btnSearchProduct.Location = new Point(777, 11);
             btnSearchProduct.Margin = new Padding(3, 4, 3, 4);
             btnSearchProduct.Name = "btnSearchProduct";
-            btnSearchProduct.Size = new Size(87, 36);
+            btnSearchProduct.Size = new Size(111, 50);
             btnSearchProduct.TabIndex = 5;
             btnSearchProduct.Text = "Search";
-            btnSearchProduct.UseVisualStyleBackColor = true;
+            btnSearchProduct.UseVisualStyleBackColor = false;
             btnSearchProduct.Click += btnSearchProduct_Click;
             // 
             // txtSearcProduct
             // 
             txtSearcProduct.Anchor = AnchorStyles.Top;
-            txtSearcProduct.Location = new Point(3, 27);
+            txtSearcProduct.Location = new Point(56, 30);
             txtSearcProduct.Margin = new Padding(3, 4, 3, 4);
             txtSearcProduct.Name = "txtSearcProduct";
-            txtSearcProduct.Size = new Size(508, 26);
+            txtSearcProduct.Size = new Size(664, 31);
             txtSearcProduct.TabIndex = 3;
             // 
             // panel1
@@ -157,26 +163,27 @@
             panel1.Location = new Point(0, 20);
             panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(658, 81);
+            panel1.Size = new Size(993, 81);
             panel1.TabIndex = 8;
             // 
             // label1
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Font = new Font("Sitka Heading", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(256, 18);
+            label1.Font = new Font("Sitka Heading", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Yellow;
+            label1.Location = new Point(369, 13);
             label1.Name = "label1";
-            label1.Size = new Size(146, 35);
+            label1.Size = new Size(217, 49);
             label1.TabIndex = 0;
             label1.Text = "Product Data";
             // 
             // ItPanelProduct
             // 
-            AutoScaleDimensions = new SizeF(8F, 21F);
+            AutoScaleDimensions = new SizeF(10F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.HighlightText;
-            ClientSize = new Size(660, 557);
+            BackColor = Color.FromArgb(192, 0, 0);
+            ClientSize = new Size(1001, 694);
             Controls.Add(panel4);
             Font = new Font("Sitka Heading", 11.249999F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;

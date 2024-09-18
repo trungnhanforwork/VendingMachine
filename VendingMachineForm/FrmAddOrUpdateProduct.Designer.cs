@@ -49,19 +49,21 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(97, 513);
+            btnSave.BackColor = Color.Yellow;
+            btnSave.Font = new Font("Sitka Heading", 16.1999989F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSave.Location = new Point(170, 505);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(432, 43);
+            btnSave.Size = new Size(303, 58);
             btnSave.TabIndex = 6;
             btnSave.Text = "Save";
-            btnSave.UseVisualStyleBackColor = true;
+            btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += btnSave_Click;
             // 
             // btnUpload
             // 
-            btnUpload.Location = new Point(366, 329);
+            btnUpload.Location = new Point(387, 329);
             btnUpload.Name = "btnUpload";
-            btnUpload.Size = new Size(83, 39);
+            btnUpload.Size = new Size(107, 57);
             btnUpload.TabIndex = 4;
             btnUpload.Text = "Upload";
             btnUpload.UseVisualStyleBackColor = true;
@@ -125,13 +127,14 @@
             // lblHeading
             // 
             lblHeading.AutoSize = true;
-            lblHeading.Font = new Font("Sitka Heading", 15.7499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblHeading.Font = new Font("Sitka Heading", 16.1999989F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblHeading.ForeColor = Color.Yellow;
-            lblHeading.Location = new Point(90, 53);
+            lblHeading.Location = new Point(170, 34);
             lblHeading.Name = "lblHeading";
-            lblHeading.Size = new Size(310, 39);
+            lblHeading.Size = new Size(324, 39);
             lblHeading.TabIndex = 10;
             lblHeading.Text = "ADD | UPDATE PRODUCT";
+            lblHeading.Click += lblHeading_Click;
             // 
             // txtPrice
             // 
@@ -171,7 +174,7 @@
             // 
             label5.AutoSize = true;
             label5.ForeColor = Color.Yellow;
-            label5.Location = new Point(97, 433);
+            label5.Location = new Point(90, 433);
             label5.Name = "label5";
             label5.Size = new Size(94, 29);
             label5.TabIndex = 23;
@@ -183,7 +186,7 @@
             cboCategory.Location = new Point(210, 433);
             cboCategory.MaxDropDownItems = 5;
             cboCategory.Name = "cboCategory";
-            cboCategory.Size = new Size(139, 37);
+            cboCategory.Size = new Size(319, 37);
             cboCategory.TabIndex = 5;
             // 
             // FrmAddOrUpdateProduct
@@ -192,7 +195,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.Maroon;
-            ClientSize = new Size(626, 593);
+            ClientSize = new Size(643, 616);
             Controls.Add(cboCategory);
             Controls.Add(label5);
             Controls.Add(txtStock);
@@ -216,7 +219,7 @@
             MinimizeBox = false;
             Name = "FrmAddOrUpdateProduct";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Add -  Update Product";
             Load += FrmAddOrUpdateProduct_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBoxProductImage).EndInit();
             ResumeLayout(false);

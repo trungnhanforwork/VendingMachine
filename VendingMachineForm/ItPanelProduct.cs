@@ -28,7 +28,7 @@ namespace VendingMachineForm
             dgvProducts.AutoGenerateColumns = true;
 
 
-            if (name != null && name != "") 
+            if (name != null && name != "")
             {
                 products = productService.GetProductsByCondition(name);
             }
@@ -117,6 +117,11 @@ namespace VendingMachineForm
                 return;
             }
             FillDataGridView(name);
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

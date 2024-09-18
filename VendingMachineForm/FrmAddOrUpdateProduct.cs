@@ -156,5 +156,10 @@ namespace VendingMachineForm
         {
 
         }
+
+        private void lblHeading_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

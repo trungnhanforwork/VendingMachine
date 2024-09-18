@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            label2 = new Label();
             cboMonth = new ComboBox();
             label1 = new Label();
             panel2 = new Panel();
             dvgOrder = new DataGridView();
-            label2 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dvgOrder).BeginInit();
@@ -44,18 +44,29 @@
             panel1.Anchor = AnchorStyles.Top;
             panel1.Controls.Add(label2);
             panel1.Controls.Add(cboMonth);
-            panel1.Location = new Point(-40, 47);
-            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.Location = new Point(12, 63);
             panel1.Name = "panel1";
-            panel1.Size = new Size(624, 72);
+            panel1.Size = new Size(816, 96);
             panel1.TabIndex = 3;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Sitka Heading", 13.7999992F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Gold;
+            label2.Location = new Point(183, 29);
+            label2.Name = "label2";
+            label2.Size = new Size(150, 33);
+            label2.TabIndex = 1;
+            label2.Text = "Choose month";
             // 
             // cboMonth
             // 
             cboMonth.FormattingEnabled = true;
-            cboMonth.Location = new Point(349, 21);
+            cboMonth.Location = new Point(376, 34);
+            cboMonth.Margin = new Padding(3, 4, 3, 4);
             cboMonth.Name = "cboMonth";
-            cboMonth.Size = new Size(92, 23);
+            cboMonth.Size = new Size(202, 28);
             cboMonth.TabIndex = 0;
             // 
             // label1
@@ -64,9 +75,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Sitka Heading", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Yellow;
-            label1.Location = new Point(168, 6);
+            label1.Location = new Point(271, 8);
             label1.Name = "label1";
-            label1.Size = new Size(251, 39);
+            label1.Size = new Size(319, 49);
             label1.TabIndex = 0;
             label1.Text = "MONTHLY REPORT";
             label1.TextAlign = ContentAlignment.TopCenter;
@@ -76,46 +87,34 @@
             // 
             panel2.Anchor = AnchorStyles.Top;
             panel2.Controls.Add(dvgOrder);
-            panel2.Location = new Point(4, 122);
+            panel2.Location = new Point(12, 163);
+            panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(581, 323);
+            panel2.Size = new Size(816, 448);
             panel2.TabIndex = 4;
             // 
             // dvgOrder
             // 
             dvgOrder.Anchor = AnchorStyles.Top;
-            dvgOrder.BackgroundColor = SystemColors.ButtonFace;
+            dvgOrder.BackgroundColor = SystemColors.ButtonHighlight;
             dvgOrder.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dvgOrder.Location = new Point(3, 1);
-            dvgOrder.Margin = new Padding(3, 2, 3, 2);
             dvgOrder.Name = "dvgOrder";
             dvgOrder.RowHeadersWidth = 51;
-            dvgOrder.Size = new Size(575, 319);
+            dvgOrder.Size = new Size(810, 444);
             dvgOrder.TabIndex = 1;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Sitka Heading", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.Gold;
-            label2.Location = new Point(227, 21);
-            label2.Name = "label2";
-            label2.Size = new Size(106, 23);
-            label2.TabIndex = 1;
-            label2.Text = "Choose month";
             // 
             // FrmStatistical
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.DarkRed;
-            ClientSize = new Size(597, 461);
+            BackColor = Color.FromArgb(192, 0, 0);
+            ClientSize = new Size(840, 638);
             ControlBox = false;
             Controls.Add(panel2);
             Controls.Add(label1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "FrmStatistical";
             StartPosition = FormStartPosition.CenterParent;
             Text = "FrmStatistical";

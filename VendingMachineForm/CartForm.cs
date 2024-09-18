@@ -149,6 +149,11 @@ namespace VendingMachineForm
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (cart.Count == 0)
+            {
+                MessageBox.Show("Please choose one product to pay");
+                return;
+            }
             // Initialize the order service (assume dependencies are injected or created)
             CustomerOrderService orderService = new CustomerOrderService();
 
